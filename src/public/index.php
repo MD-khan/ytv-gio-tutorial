@@ -2,8 +2,18 @@
 
 declare(strict_types=1);
 
-echo '<pre>';
-print_r($_SERVER);
-echo '</pre>';
+require_once '../Transaction.php';
 
-//phpinfo();
+$transaction1 = (new Transaction(100, 'transaction 1'))
+    ->addTax(6.25)
+    ->applyDiscount(2)
+    ->getAmount();
+
+$transaction2 = (new Transaction(150, 'transaction 1'))
+    ->addTax(6.25)
+    ->applyDiscount(20)
+    ->getAmount();
+// $transaction->addTax(6.25)->applyDiscount(2);
+
+//var_dump($transaction1, $transaction2);
+
