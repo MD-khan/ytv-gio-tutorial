@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-class Transaction
+namespace App;
+
+class Transactions
 {
 
     private float $amount;
@@ -14,13 +16,13 @@ class Transaction
         $this->description = $description;
     }
 
-    public function addTax(float $rate) : Transaction
+    public function addTax(float $rate): Transactions
     {
         $this->amount += $this->amount * $rate / 100;
-        return $this; 
+        return $this;
     }
 
-    public function applyDiscount(float $rate) : Transaction
+    public function applyDiscount(float $rate): Transactions
     {
         $this->amount -= $this->amount * $rate / 100;
         return $this;
